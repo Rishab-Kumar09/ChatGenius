@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: chatgenius-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://chatgenius-backend.onrender.com
+
+  - type: web
+    name: chatgenius-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production 
