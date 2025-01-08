@@ -15,4 +15,13 @@ services:
     startCommand: npm start
     envVars:
       - key: NODE_ENV
-        value: production 
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: chatgenius-db
+          property: connectionString
+
+databases:
+  - name: chatgenius-db
+    databaseName: chatgenius
+    user: chatgenius 
